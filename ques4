@@ -1,0 +1,28 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class ques4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask user to enter birthdate
+        System.out.print("Enter your birthdate (yyyy-mm-dd): ");
+        String input = scanner.nextLine();
+
+        // Parse the input string to LocalDate object
+        LocalDate birthdate = LocalDate.parse(input, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        // Calculate age
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(birthdate, currentDate);
+
+        // Print age
+        System.out.println("Your age is: " + period.getYears() + " years, " +
+                period.getMonths() + " months, and " +
+                period.getDays() + " days.");
+
+        scanner.close();
+    }
+}
