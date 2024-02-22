@@ -1,0 +1,16 @@
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class ques1 {
+    public static void main(String[] args) {
+        Stream<String> names = Stream.of("aBc", "d", "ef");
+
+        List<String> upperCaseNames = names
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+
+        System.out.println("Original List: aBc, d, ef");
+        System.out.println("Uppercase List: " + upperCaseNames);
+    }
+}
